@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Navbar, Main, Footer, Cards } from '@components';
+import { Navbar } from '@components';
+import Main from '@components/main';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Styled.BodyContainer className="d-flex flex-column min-vh-100">
       <Navbar />
-      <Main />
-      {/* <Cards /> */}
-      {/* <Footer /> */}
+      <Main {...props} />
     </Styled.BodyContainer>
   );
 };

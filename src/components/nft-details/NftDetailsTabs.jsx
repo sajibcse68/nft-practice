@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
-import styled from 'styled-components';
-
 import NftLore from './NftLore';
 import NftDetails from './NftDetails';
 

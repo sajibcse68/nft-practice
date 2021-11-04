@@ -24,7 +24,8 @@
       "@definitions/*": ["src/definitions/*"],
       "@definitions": ["src/definitions"],
       "@interfaces/*": ["src/interfaces/*"],
-      "@interfaces": ["src/interfaces"]
+      "@interfaces": ["src/interfaces"],
+      "@services": ["src/services"]
     }
   },
   "include": ["next-env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],

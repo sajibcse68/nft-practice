@@ -1,72 +1,60 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import styled from 'styled-components';
+import { NftContext } from '@components/main';
+import { formatAddress, getBlockchainFromType } from 'src/utils';
 
 function NftProperties() {
+  const {
+    address,
+    tokenId,
+    type,
+    metadata: { attributes = [] } = {},
+  } = useContext(NftContext);
   const [showMore, setShowMore] = useState(null);
+  const attributesNow = showMore ? attributes : attributes.slice(0, 2);
 
   return (
     <Styled.NftProperties>
       <Styled.NftPropertiesTop>
         <Styled.NftPropertyItem>
           <Styled.NftPropertyItemLabel>Chain Info</Styled.NftPropertyItemLabel>
-          <Styled.NftPropertyItemValue>0x7b...6bc7</Styled.NftPropertyItemValue>
+          <Styled.NftPropertyItemValue>
+            {formatAddress(address)}
+          </Styled.NftPropertyItemValue>
         </Styled.NftPropertyItem>
-
         <Styled.NftPropertyItem>
           <Styled.NftPropertyItemLabel>Token Id</Styled.NftPropertyItemLabel>
-          <Styled.NftPropertyItemValue>1</Styled.NftPropertyItemValue>
+          <Styled.NftPropertyItemValue>{tokenId}</Styled.NftPropertyItemValue>
         </Styled.NftPropertyItem>
 
         <Styled.NftPropertyItem>
           <Styled.NftPropertyItemLabel>Blockchain</Styled.NftPropertyItemLabel>
-          <Styled.NftPropertyItemValue>Ethereum</Styled.NftPropertyItemValue>
+          <Styled.NftPropertyItemValue>
+            {getBlockchainFromType(type)}
+          </Styled.NftPropertyItemValue>
         </Styled.NftPropertyItem>
       </Styled.NftPropertiesTop>
 
       <Styled.NftPropertiesBottom>
-        <Styled.NftPropertyItem>
-          <Styled.NftPropertyItemLabel>Type</Styled.NftPropertyItemLabel>
-          <Styled.NftPropertyItemValue>Human</Styled.NftPropertyItemValue>
-        </Styled.NftPropertyItem>
+        {attributesNow.map((attr) => {
+          return (
+            <Styled.NftPropertyItem key={attr.trait_type}>
+              <Styled.NftPropertyItemLabel>
+                {attr.trait_type}
+              </Styled.NftPropertyItemLabel>
+              <Styled.NftPropertyItemValue>
+                {attr.value}
+              </Styled.NftPropertyItemValue>
+            </Styled.NftPropertyItem>
+          );
+        })}
 
-        <Styled.NftPropertyItem>
-          <Styled.NftPropertyItemLabel>Hair Style</Styled.NftPropertyItemLabel>
-          <Styled.NftPropertyItemValue>Bald</Styled.NftPropertyItemValue>
-        </Styled.NftPropertyItem>
-
-        {!showMore && (
+        {!showMore ? (
           <Styled.ShowMore onClick={() => setShowMore(true)}>
             Show More
           </Styled.ShowMore>
-        )}
-
-        {showMore && (
-          <>
-            <Styled.NftPropertyItem>
-              <Styled.NftPropertyItemLabel>Hat</Styled.NftPropertyItemLabel>
-              <Styled.NftPropertyItemValue>
-                Backwards Cap
-              </Styled.NftPropertyItemValue>
-            </Styled.NftPropertyItem>
-
-            <Styled.NftPropertyItem>
-              <Styled.NftPropertyItemLabel>
-                Hat Color
-              </Styled.NftPropertyItemLabel>
-              <Styled.NftPropertyItemValue>Gray</Styled.NftPropertyItemValue>
-            </Styled.NftPropertyItem>
-
-            <Styled.NftPropertyItem>
-              <Styled.NftPropertyItemLabel>Shirt</Styled.NftPropertyItemLabel>
-              <Styled.NftPropertyItemValue>
-                Skull Tee
-              </Styled.NftPropertyItemValue>
-            </Styled.NftPropertyItem>
-          </>
-        )}
-
-        {showMore && (
+        ) : (
           <Styled.ShowMore onClick={() => setShowMore(false)}>
             Show less
           </Styled.ShowMore>
@@ -90,9 +78,7 @@ Styled.NftProperties = styled.div`
   margin-bottom: 40px;
 `;
 
-Styled.NftPropertiesTop = styled.div`
-  // flex-direction: column;
-`;
+Styled.NftPropertiesTop = styled.div``;
 Styled.NftPropertiesBottom = styled.div`
   padding-top: 15px;
   border-top: 1px solid rgb(223, 223, 223);

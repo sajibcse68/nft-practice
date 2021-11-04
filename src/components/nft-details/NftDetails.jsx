@@ -1,12 +1,19 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 
 import NftProperties from './NftProperties';
 import RoundProfilePic from './RoundProfilePic';
 
+import { NftContext } from '@components/main';
+import { formatAddress, getBlockchainFromType } from 'src/utils';
+
 function NftDetailsTabs() {
+  const { creator, owner, metadata = {} } = useContext(NftContext) || {};
+  const { name } = metadata;
+
   return (
     <>
-      <Styled.NftName>Meebit #1</Styled.NftName>
+      <Styled.NftName>{name}</Styled.NftName>
 
       <Styled.SubHeader>Properties</Styled.SubHeader>
 
@@ -16,13 +23,13 @@ function NftDetailsTabs() {
 
       <Styled.ProfilePicWithAddr>
         <RoundProfilePic></RoundProfilePic>
-        <span>0xaf...8388</span>
+        <span>{formatAddress(creator)}</span>
       </Styled.ProfilePicWithAddr>
 
       <Styled.SubHeader>Currently Owned By</Styled.SubHeader>
       <Styled.ProfilePicWithAddr>
         <RoundProfilePic></RoundProfilePic>
-        <span>0xaf...8388</span>
+        <span>{formatAddress(owner)}</span>
       </Styled.ProfilePicWithAddr>
     </>
   );
