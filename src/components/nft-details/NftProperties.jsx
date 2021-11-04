@@ -106,6 +106,7 @@ Styled.NftPropertyItem = styled.div`
 Styled.NftPropertyItemLabel = styled.div`
   flex-basis: 30%;
   font-size: 14px;
+  font-weight: 500;
   letter-spacing: 0.31px;
   color: rgb(17, 17, 17);
 
@@ -119,6 +120,7 @@ Styled.NftPropertyItemValue = styled.div`
   letter-spacing: 0.31px;
   color: rgb(102, 102, 102);
   word-break: break-word;
+  cursor: pointer;
 
   @media (max-width: 640px) {
     flex-basis: 55%;

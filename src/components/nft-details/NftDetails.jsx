@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import NftProperties from './NftProperties';
+import RoundProfilePic from './RoundProfilePic';
 
 function NftDetailsTabs() {
   return (
@@ -12,6 +13,17 @@ function NftDetailsTabs() {
       <NftProperties></NftProperties>
 
       <Styled.SubHeader>Minted By</Styled.SubHeader>
+
+      <Styled.ProfilePicWithAddr>
+        <RoundProfilePic></RoundProfilePic>
+        <span>0xaf...8388</span>
+      </Styled.ProfilePicWithAddr>
+
+      <Styled.SubHeader>Currently Owned By</Styled.SubHeader>
+      <Styled.ProfilePicWithAddr>
+        <RoundProfilePic></RoundProfilePic>
+        <span>0xaf...8388</span>
+      </Styled.ProfilePicWithAddr>
     </>
   );
 }
@@ -31,4 +43,15 @@ Styled.SubHeader = styled.div`
   letter-spacing: 0.31px;
   color: rgb(17, 17, 17);
   margin-bottom: 23px;
+`;
+
+Styled.ProfilePicWithAddr = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 49px;
+
+  > span {
+    margin-left: 10px;
+  }
 `;

@@ -1,9 +1,6 @@
-import React, { CSSProperties } from 'react';
-import { Container } from 'react-bootstrap';
+import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
-import { Button } from '@components';
 import NftDetailsTabs from '@components/nft-details/NftDetailsTabs';
 
 export const Main = () => {
@@ -40,6 +37,7 @@ Styled.BodyWrap = styled.div`
 
   @media (max-width: 1024px) {
     flex-direction: column;
+    height: auto;
   }
 `;
 
