@@ -36,6 +36,7 @@ const Styled = {};
 Styled.BodyWrap = styled.div`
   display: flex;
   flex-direction: row;
+  height: calc(100vh - 76px);
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -52,7 +53,7 @@ Styled.BodyLeft = styled.div`
 
 Styled.NftImg = styled.div`
   background: url(/images/nft-human.jpeg) no-repeat center center;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 76px);
   background-size: contain;
 `;
 
@@ -60,6 +61,7 @@ Styled.BodyRight = styled.div`
   display: flex;
   flex-direction: column;
   flex-basis: 45%;
+  overflow: auto;
 `;
 
 Styled.NftDetailsWrap = styled.div`
