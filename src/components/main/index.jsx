@@ -36,13 +36,17 @@ const Styled = {};
 Styled.BodyWrap = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 Styled.BodyLeft = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
-  flex-basis: 50%;
+  flex-basis: 55%;
   background: #000;
 `;
 

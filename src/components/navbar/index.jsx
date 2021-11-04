@@ -23,8 +23,8 @@ Styled.Navbar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  // flex-basis: 1440px;
   height: 76px;
+  padding: 0 2%;
 `;
 
 Styled.NavbarLeft = styled.div`

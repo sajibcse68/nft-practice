@@ -15,7 +15,7 @@ function NftDetailsTabs() {
       className="mb-3"
     >
       <Tab eventKey="lore" title="Lore">
-        Lore
+        Lore (WIP)
       </Tab>
       <Tab eventKey="details" title="Details">
         <Styled.NftName>Meebit #1</Styled.NftName>
@@ -157,6 +157,10 @@ Styled.NftPropertyItemLabel = styled.div`
   font-size: 14px;
   letter-spacing: 0.31px;
   color: rgb(17, 17, 17);
+
+  @media (max-width: 640px) {
+    flex-basis: 40%;
+  }
 `;
 Styled.NftPropertyItemValue = styled.div`
   flex-basis: 65%;
@@ -164,6 +168,10 @@ Styled.NftPropertyItemValue = styled.div`
   letter-spacing: 0.31px;
   color: rgb(102, 102, 102);
   word-break: break-word;
+
+  @media (max-width: 640px) {
+    flex-basis: 55%;
+  }
 }`;
 
 Styled.ShowMore = styled.span`
