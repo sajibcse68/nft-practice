@@ -1,16 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { Header, Main, Footer, Cards } from '@components';
+import { Navbar, Main, Footer, Cards } from '@components';
 
 const Home = () => {
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Header />
+    <Styled.BodyContainer className="d-flex flex-column min-vh-100">
+      <Navbar />
       <Main />
-      <Cards />
-      <Footer />
-    </div>
+      {/* <Cards /> */}
+      {/* <Footer /> */}
+    </Styled.BodyContainer>
   );
 };
 
 export default Home;
+
+const Styled = {};
+
+Styled.BodyContainer = styled.div`
+  background-color: #fff;
+`;
